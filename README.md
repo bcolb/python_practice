@@ -3,6 +3,11 @@ python_practice
 
 A repo for review of python 2 and 3, practice problems in python, learning advanced python features, and exploring new python packages.
 
+Helpful Links
+=============
+
+* Install [Python 3.5](https://www.python.org/downloads/release/python-350/)
+
 Python Fundamentals (Python 3)
 =======================
 
@@ -23,9 +28,9 @@ Python is dynamically typed so variables can refer to different data types durin
 * Complex Numbers: 3 + 2j
 * Booleans: True, False
 
-    x = 1
-    x = True
-    x = 3.14159
+    >>>x = 1
+    >>>x = True
+    >>>x = 3.14159
 
 Basic arithmetic operators include:
 
