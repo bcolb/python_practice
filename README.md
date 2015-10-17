@@ -24,13 +24,13 @@ Data Types
 Python is dynamically typed so variables can refer to different data types during runtime.
 
 * Integers: 1, -3, 42
-* FLoats: 1.0, 3.14159, 7.77
-* Complex Numbers: 3 + 2j
+* Floats: 1.0, 3.14159, 7.77
+* Complex Numbers: 3 + 2j, 4.2 + 6.3j
 * Booleans: True, False
-
     >>>x = 1
-    >>>x = True
     >>>x = 3.14159
+    >>>x = 3 + 2j
+    >>>x = False
 
 Basic arithmetic operators include:
 
@@ -87,3 +87,46 @@ There are additional list methods and operators.
 * operators: in, +, *
 * functions: len, max, min
 * methods: append, count, extend, index, insert, pop, remove, reverse, sort
+
+Strings
+-------
+
+Strings are immutable in python. Operators and functions on strings return entirely new strings.
+
+    "Can use double quotes and can contain 'single quotes'"
+    'Single quotes can contain "double quotes"'
+    '''\tStarts with a tab, ends with a newline\n'''
+    """Triple quoted strings can contain newlines"""
+
+* operators: int, +, *
+* functions: len, max, min
+* index and slice notation also work, but cannot be used to add, remove or replace elements
+
+Regular expressions
+
+    >>> y = "To be or not to be, that is \tthe \tquestion"
+    >>> y
+    'To be or not to be, that is \tthe \tquestion'
+    >>> print(y)
+    To be or not to be, that is	the	question
+    >>> y.replace("question", "answer")
+    'To be or not to be, that is \tthe \tanswer'
+    >>> print(y)
+    To be or not to be, that is	the	question
+    >>> import re
+    >>> regexpr = re.compile(r"[\t ]+")
+    >>> regexpr.sub(" ", y)
+    'To be or not to be, that is the question'
+
+Convert other data types to strings
+
+    >>> e = 2.718
+    >>> x = ["one", 2, 3.0, "four", ["a", "b"], (5, 6)]
+    >>> print("The constant e is:", e, "and the list x is:", x)
+    The constant e is: 2.718 and the list x is: ['one', 2, 3.0, 'four', ['a', 'b'], (5, 6)]
+    >>> print("the value of %s is: %.2f" % ("e", e))
+    the value of e is: 2.72
+
+Dictionaries
+------------
+
