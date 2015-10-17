@@ -130,3 +130,33 @@ Convert other data types to strings
 Dictionaries
 ------------
 
+Basically an associative array implemented with hash tables. Works by storing key value pairs.
+
+    >>> dict = {4: "four", 5: "five"}
+    >>> len(dict)
+    2
+    >>> dict[5]
+    'five'
+    >>> list(dict.keys())
+    [4, 5]
+    >>> dict.get(4)
+    'four'
+    >>> dict.get(1, "not available")
+    'not available'
+    >>> 4 in dict
+    True
+    >>> 2 in dict
+    False
+
+Sets
+----
+
+An unordered collection of unique objects.
+
+    >>> x = set([1, 3, 5, 7, 11])
+    >>> x
+    {11, 1, 3, 5, 7}
+    >>> 1 in x
+    True
+    >>> 2 in x
+    False
