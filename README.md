@@ -160,3 +160,68 @@ An unordered collection of unique objects.
     True
     >>> 2 in x
     False
+
+Tuples
+------
+
+Similar to lists but are immutable (cannot be changed after creation). They are more efficient to use than lists if you don't need modifiability.
+
+* operators: in, +, \*
+* functions: len, max, min
+* methods: count, index
+* index and slice notation work the same way as lists but cannot be used to add, remove, or replace
+
+    >>> t = ()
+    >>> t = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    >>> t = (1, 2, "three", 1, 3)
+    >>> t
+    (1, 2, 'three', 1, 3)
+    >>> t = (4, 5, [1, 2, 3], "eight")
+    >>> t[2]
+    [1, 2, 3]
+    >>> x = ["one", "two", "three", "four"]
+    >>> t = tuple(x)
+    >>> t
+    ('one', 'two', 'three', 'four')
+    >>> y = list(t)
+    >>> y
+    ['one', 'two', 'three', 'four']
+
+Files
+-----
+
+Files are accessed via the python file object.
+
+    >>> f = open("hello.txt", "w")
+    >>> f.write("Hello world!\n")
+    13
+    >>> f.write("This is a simple test file to demonstrate use of the python file object")
+    71
+    >>> f.close()
+    >>> f = open("hello.txt", "r")
+    >>> line1 = f.readline()
+    >>> line2 = f.readline()
+    >>> f.close()
+    >>> print(line1, line2)
+    Hello world!
+     This is a simple test file to demonstrate use of the python file object
+
+Using the os module.
+
+    >>> import os
+    >>> print(os.getcwd())
+    /Users/myusername/Programs/python_practice
+    >>> print(os.path.join("Users", "myusername", "Programs"))
+    Users/myusername/Programs
+    >>> print(os.path.join("/", "Users", "myusername", "Programs"))
+    /Users/myusername/Programs
+    >>> print(os.path.join("/", "Users", "myusername", "Programs", "python_practice"))
+    /Users/myusername/Programs/python_practice
+    >>> filename = os.path.join("/", "Users", "myusername", "Programs", "python_practice", "hello.txt")
+    >>> print(filename)
+    /Users/myusername/Programs/python_practice/hello.txt
+    >>> f = open(filename, "r")
+    >>> print(f.readline())
+    Hello world!
+    
+    >>> f.close()
