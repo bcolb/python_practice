@@ -235,6 +235,91 @@ Using the os module.
     /Users/myusername/Programs/python_practice/hello.txt
     >>> f = open(filename, "r")
     >>> print(f.readline())
-    Hello world!
-    
+    Hello world!    
     >>> f.close()
+
+Control Flow
+------------
+
+A number of data types can be used as boolean values.
+
+Values evaluated as false include: False, 0, None, [], "", and other empty values.
+
+Values evaluted as true include: True, 1, and everything else that's not an empty value.
+
+Comparison expression can be made with the following operators:
+
+    >, >=, <, <=, ==, !=, is, not, in, is not, not in
+
+if-elif-else
+------------
+
+    >>> x = 7
+    >>> if x < 7:
+    ...     y = -9
+    ...     z = 5
+    ... elif x > 7:
+    ...     y = 10
+    ...     z = 1
+    ... else:
+    ...     y = 1
+    ...     z = 2
+    ... 
+    >>> print(x, y, z)
+    7 1 2
+
+The block of code following the first condition evaluted to true will be executed. If none of the if or elif conditions evalute to true and an else clause is included, then the block of code proceeding the else clause will execute. The elif and else clauses are optional.
+
+While Loops
+-----------
+
+While loops will continue to execute as long as the condition evaluates to true.
+
+    >>> while count < 1000:
+    ...     count *= 2
+    ...     print(count)
+    ... 
+    2
+    4
+    8
+    16
+    32
+    64
+    128
+    256
+    512
+    1024
+
+The break and continue statements can also be used within the loop. The break statement will end the loop while the continue statement will abort the current interation of the loop.
+
+for loops
+---------
+
+For loops are able to loop over any iterable type in python, including lists or tuples. The for loop in python is more like a for each loop in some other languages.
+
+    >>> a_list = ["item one", 2, 3, "four", "Penguin", "Gnu"]
+    >>> for item in a_list:
+    ...     print(item)
+    ... 
+    item one
+    2
+    3
+    four
+    Penguin
+    Gnu
+
+You can still loop through a number space using the range function.
+
+    >>> for i in range(0, 10):
+    ...     print("i = ", i)
+    ... 
+    i =  0
+    i =  1
+    i =  2
+    i =  3
+    i =  4
+    i =  5
+    i =  6
+    i =  7
+    i =  8
+    i =  9
