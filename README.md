@@ -82,6 +82,19 @@ You can also slice a list to form a smaller section of that list.
     >>>l[1:]
     [2, 3, 4, 5, 6]
 
+List comprehension is pretty cool in python.
+
+    >>> string_of_numbers = "1 2 3 4 5 6 7 8 9 10"
+    >>> string_array = string_of_numbers.split(' ')
+    >>> string_array
+    ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    >>> num_array = [int(x) for x in string_array]
+    >>> num_array
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    >>> squares = [x**2 for x in num_array]
+    >>> squares
+    [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
 There are additional list methods and operators.
 
 * operators: in, +, *
