@@ -385,3 +385,31 @@ You can return a value using the return statement:
     'Hello world!'
 
 If a value isn't explicity returned, then the None value is returned.
+
+Exceptions
+----------
+
+In python exceptions can be caught and handled by using the try-except-finally-else statements. This structure also allows you to catch and handle custom exceptions defined by the program. Uncaught exceptions cause the program to exit.
+
+    >>> def open_file(filename):
+    ...     try:
+    ...         f = open(filename, 'r')
+    ...         print(f.readline())
+    ...         f.close()
+    ...     except IOError as error:
+    ...         print("The file %s could not be opened" % (filename))
+    ...     else:
+    ...         print("No exception occurred!")
+    ...     finally:
+    ...         print("This will always get executed")
+    ... 
+    >>> open_file("hello.txt")
+    The file hello.txt could not be opened
+    This will always get executed
+    >>> open_file("README.md")
+    python_practice
+    
+    No exception occurred!
+    This will always get executed
+
+Noe that both the else and finally clauses are optional.
