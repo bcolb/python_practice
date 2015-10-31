@@ -74,7 +74,7 @@ Lists can be indexed from the front with positive indices or from the rear with 
     >>>l[-3]
     4
 
-You can also slice a list to form a smaller section of that list.
+You can also slice a list to form a smaller section of that list. Slicing lists will create a new copy of the list, not a reference to the existing list.
 
     >>>l = [1, 2, 3, 4, 5, 6]
     >>>l[:3]
@@ -323,3 +323,65 @@ You can still loop through a number space using the range function.
     i =  7
     i =  8
     i =  9
+
+functions
+---------
+
+Python functions are defined using the 'def' keyword.
+
+    >>> def hello():
+    ...     print("Hello world!")
+    ... 
+    >>> hello()
+    Hello world!
+
+Arguments can be passed in one of several ways, for instance by position:
+
+    >>> def foo_bar(x, y, z):
+    ...     sum = x + y + z
+    ...     product = x * y * z
+    ...     print("Sum = ", sum)
+    ...     print("Product = ", product)
+    ... 
+    >>> foo_bar(1, 3, 9)
+    Sum =  13
+    Product =  27
+
+Or you can use keyword arguments, or a combination of both:
+
+    >>> def example(x, y=2, z=17):
+    ...     print("x: ",x)
+    ...     print("y: ",y)
+    ...     print("z: ",z)
+    ... 
+    >>> example(1, 2, 3)
+    x:  1
+    y:  2
+    z:  3
+    >>> example(0)
+    x:  0
+    y:  2
+    z:  17
+
+Extra positional arguments can be collected into a tuple using *, and extra keywords into a dictionary using **:
+
+    >>> def extra_tuple(*tup):
+    ...     print(tup)
+    ... 
+    >>> extra_tuple(1, 2, 3, 4, 10)
+    (1, 2, 3, 4, 10)
+    >>> def extra_dictionary(**dictionary):
+    ...     print(dictionary)
+    ... 
+   >>> extra_dictionary(n=1, d=2)
+   {'d': 2, 'n': 1}
+
+You can return a value using the return statement:
+
+    >>> def hello_world():
+    ...     return "Hello world!"
+    ... 
+    >>> hello_world()
+    'Hello world!'
+
+If a value isn't explicity returned, then the None value is returned.
