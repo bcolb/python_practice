@@ -413,3 +413,46 @@ In python exceptions can be caught and handled by using the try-except-finally-e
     This will always get executed
 
 Noe that both the else and finally clauses are optional.
+
+Modules
+-------
+
+Modules can be created and then used in the same way that the built-in library modules are used. Below is an example module with a single function that gets Mars weather data for an external api.
+
+    '''mars module. Get the temperature on mars'''
+    import urllib.request
+    import simplejson
+    def report():
+        url = "http://marsweather.ingenology.com/v1/latest/?format=json"
+        mars_results = urllib.request.urlopen(url)
+        json_results = simplejson.loads(mars_results.read())
+        results = json_results['report']
+        print(results)
+        for result in results:
+            print(result + ': ' + str(results[result]))
+    if __name__ == '__main__':
+        report()
+
+To import and use this:
+
+    >>> import mars
+    >>> mars.report()
+    season: Month 3
+    max_temp: -31.0
+    max_temp_fahrenheit: -23.8
+    min_temp_fahrenheit: -115.6
+    sol: 1151
+    terrestrial_date: 2015-11-01
+    pressure_string: Higher
+    abs_humidity: None
+    min_temp: -82.0
+    wind_direction: --
+    pressure: 901.0
+    ls: 62.0
+    sunrise: 2015-11-01T12:04:00Z
+    wind_speed: None
+    atmo_opacity: Sunny
+    sunset: 2015-11-01T23:49:00Z
+
+You can also organize modules into packages by creating a __init__.py file in the directory.
+
