@@ -456,3 +456,67 @@ To import and use this:
 
 You can also organize modules into packages by creating a __init__.py file in the directory.
 
+Object Oriented
+---------------
+
+To declare a class in python use the 'class' keyword. Methods are defined using the 'def' keyword, just like functions.
+
+Class constructors are always defined as:
+
+    def __init(self):
+        self.name = 'someclass'
+
+Methods must pass 'self' as the first argument, which is a reference to the current object. Classes can inherit from other classes by passing in the parent class during definition:
+
+    class BorderCollie(Dog):
+        ...
+
+Note that classes must explicitly call the constructor of their parent class (assuming they have a parent class that is).
+
+Here are a few examples of classes. Multiple classes can be defined in the same file.
+
+    '''dogs module. Contains classes for Dog, BorderCollie, Husky.'''
+    class Dog:
+        '''Dog Class'''
+        def __init__(self, color, age):
+            self.color = color
+            self.age = age
+        def play(self):
+            return "Rooof!"
+        def __str__(self):
+            return "Dog with color %s and age %s" % (self.color, self.age)
+    
+    class BorderCollie(Dog):
+        '''Border Collie class'''
+        def __init__(self, color="black/white", age=1, name="Border Collie"):
+            Dog.__init__(self, color, age)
+            self.name = name
+        def play(self):
+            return "Tilts head sideways"
+    
+    class Husky(Dog):
+        '''Husky class'''
+        def __init__(self, color="all white", age=1, name="Husky"):
+            Dog.__init__(self, color, age)
+            self.name = name
+        def play(self):
+            return "Jumps up and down"
+
+Here's an interactive prompt using those classes:
+
+    >>> import dogs
+    >>> dog1 = dogs.Dog(color="Brown", age=4)
+    >>> dog1.color
+    'Brown'
+    >>> dog1.age
+    4
+    >>> dog1.play()
+    'Rooof!'
+    >>> str(dog1)
+    'Dog with color Brown and age 4'
+    >>> dog2 = dogs.BorderCollie(name="Jimbo")
+    >>> dog2.play()
+    'Tilts head sideways'
+    >>> str(dog2)
+    'Dog with color black/white and age 1'
+
