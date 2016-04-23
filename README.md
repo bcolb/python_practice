@@ -66,7 +66,7 @@ In [13]: def pass_by_reference_example(item):
 In [14]: pass_by_reference_example(a)
 4423117056
 
-Python is dynamically typed meaning variables can refer to different data types during runtime.
+Python is dynamically typed meaning variables can refer to different data types during runtime. However, it is strongly typed and with a few exceptions does not implicitly convert objects of different types during operations.
 
 * Integers: 1, -3, 42
 * Floats: 1.0, 3.14159, 7.77
@@ -93,6 +93,8 @@ In [21]: x = False
 In [22]: type(x)
 Out[22]: bool
 
+It is worth noting that in regards to evaluation python is a strict or eager evaluator. Computations and expressions are evaluated immediately.		 
+Most python objects are mutable, including user defined classes as well as lists and dicts. However, some objects like strings and tuples are immutable.
 Basic arithmetic operators include:
 
 * addition: + 
@@ -316,3 +318,18 @@ Using the os module.
     Hello world!
     
     >>> f.close()
+
+Control Flow
+------------
+
+Python supports close circuit evaluation.
+
+a = 1
+b = 9
+if a > 0 or b > 11:
+    print("a or b is greater") # b never gets evaluated
+elif b < 10:
+    print("B is less than 10")
+else:
+    print("No conditions met")
+
