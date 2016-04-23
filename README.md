@@ -18,19 +18,80 @@ Python Fundamentals (Python 3)
     globals() # Lists global variables
     locals()  # Lists local variables
 
-Data Types
-----------
+Objects, Data Types and Pass By Reference
+--------------------------------
 
-Python is dynamically typed so variables can refer to different data types during runtime.
+Everything in python is an object with an associated type. Use the built-in 'type' function to check for an objects type.
+
+In [1]: a = 5
+
+In [2]: type(a)
+Out[2]: int
+
+In [3]: a = 'type test'
+
+In [4]: type(a)
+Out[4]: str
+
+Python is pass by reference. Each bound variable references a location in memory where the object is located.
+
+In [5]: id(a)
+Out[5]: 4423117056
+
+In [6]: b = a
+
+In [7]: id(b)
+Out[7]: 4423117056
+
+In [8]: b = 'a different string'
+
+In [9]: id(b)
+Out[9]: 4422683480
+
+In [10]: a
+Out[10]: 'type test'
+
+In [11]: b
+Out[11]: 'a different string'
+
+Functions are pass by reference, meaning that an argument passed into a function is merely a reference to an object. The function can then alter the object.
+
+In [12]: id(a)
+Out[12]: 4423117056
+
+In [13]: def pass_by_reference_example(item):
+   ....:     print id(a)
+   ....:     
+
+In [14]: pass_by_reference_example(a)
+4423117056
+
+Python is dynamically typed meaning variables can refer to different data types during runtime.
 
 * Integers: 1, -3, 42
 * Floats: 1.0, 3.14159, 7.77
 * Complex Numbers: 3 + 2j, 4.2 + 6.3j
 * Booleans: True, False
-    >>>x = 1
-    >>>x = 3.14159
-    >>>x = 3 + 2j
-    >>>x = False
+
+In [15]: x = 1
+
+In [16]: type(x)
+Out[16]: int
+
+In [17]: x = 3.14159
+
+In [18]: type(x)
+Out[18]: float
+
+In [19]: x = 3 + 2j
+
+In [20]: type(x)
+Out[20]: complex
+
+In [21]: x = False
+
+In [22]: type(x)
+Out[22]: bool
 
 Basic arithmetic operators include:
 
@@ -87,6 +148,36 @@ There are additional list methods and operators.
 * operators: in, +, *
 * functions: len, max, min
 * methods: append, count, extend, index, insert, pop, remove, reverse, sort
+
+To properly copy a list that main contain objects use the deep copy library.
+
+In [34]: l1 = ['a', 1, 2, 3, 4, ['listception']]
+
+In [35]: l2 = l1
+
+In [36]: l1
+Out[36]: ['a', 1, 2, 3, 4, ['listception']]
+
+In [37]: l2
+Out[37]: ['a', 1, 2, 3, 4, ['listception']]
+
+In [38]: l1[0] = 'b'
+
+In [39]: l1
+Out[39]: ['b', 1, 2, 3, 4, ['listception']]
+
+In [40]: l2
+Out[40]: ['b', 1, 2, 3, 4, ['listception']]
+
+In [41]: l2 = deepcopy(l1)
+
+In [42]: l1[0] = 'c'
+
+In [43]: l1
+Out[43]: ['c', 1, 2, 3, 4, ['listception']]
+
+In [44]: l2
+Out[44]: ['b', 1, 2, 3, 4, ['listception']]
 
 Strings
 -------
