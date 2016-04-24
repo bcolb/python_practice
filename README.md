@@ -22,7 +22,7 @@ Objects, Data Types and Pass By Reference
 --------------------------------
 
 Everything in python is an object with an associated type. Use the built-in 'type' function to check for an objects type.
-
+```
 In [1]: a = 5
 
 In [2]: type(a)
@@ -32,9 +32,9 @@ In [3]: a = 'type test'
 
 In [4]: type(a)
 Out[4]: str
-
+```
 Python is pass by reference. Each bound variable references a location in memory where the object is located.
-
+```
 In [5]: id(a)
 Out[5]: 4423117056
 
@@ -53,9 +53,9 @@ Out[10]: 'type test'
 
 In [11]: b
 Out[11]: 'a different string'
-
+```
 Functions are pass by reference, meaning that an argument passed into a function is merely a reference to an object. The function can then alter the object.
-
+```
 In [12]: id(a)
 Out[12]: 4423117056
 
@@ -65,14 +65,14 @@ In [13]: def pass_by_reference_example(item):
 
 In [14]: pass_by_reference_example(a)
 4423117056
-
+```
 Python is dynamically typed meaning variables can refer to different data types during runtime. However, it is strongly typed and with a few exceptions does not implicitly convert objects of different types during operations.
 
 * Integers: 1, -3, 42
 * Floats: 1.0, 3.14159, 7.77
 * Complex Numbers: 3 + 2j, 4.2 + 6.3j
 * Booleans: True, False
-
+```
 In [15]: x = 1
 
 In [16]: type(x)
@@ -92,7 +92,7 @@ In [21]: x = False
 
 In [22]: type(x)
 Out[22]: bool
-
+```
 It is worth noting that in regards to evaluation python is a strict or eager evaluator. Computations and expressions are evaluated immediately.		 
 Most python objects are mutable, including user defined classes as well as lists and dicts. However, some objects like strings and tuples are immutable.
 Basic arithmetic operators include:
@@ -165,7 +165,7 @@ There are additional list methods and operators.
 * methods: append, count, extend, index, insert, pop, remove, reverse, sort
 
 To properly copy a list that main contain objects use the deep copy library.
-
+```
 In [34]: l1 = ['a', 1, 2, 3, 4, ['listception']]
 
 In [35]: l2 = l1
@@ -193,7 +193,7 @@ Out[43]: ['c', 1, 2, 3, 4, ['listception']]
 
 In [44]: l2
 Out[44]: ['b', 1, 2, 3, 4, ['listception']]
-
+```
 Strings
 -------
 
@@ -278,21 +278,21 @@ Similar to lists but are immutable (cannot be changed after creation). They are 
 * index and slice notation work the same way as lists but cannot be used to add, remove, or replace
 
 ```
-    >>>t = ()
-    >>>t = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    >>>t = (1, 2, "three", 1, 3)
-    >>>t
-    (1, 2, 'three', 1, 3)
-    >>>t = (4, 5, [1, 2, 3], "eight")
-    >>>t[2]
-    [1, 2, 3]
-    >>>x = ["one", "two", "three", "four"]
-    >>>t = tuple(x)
-    >>>t
-    ('one', 'two', 'three', 'four')
-    >>>y = list(t)
-    >>>y
-    ['one', 'two', 'three', 'four']
+>>> t = ()
+>>> t = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+>>> t = (1, 2, "three", 1, 3)
+>>> t
+(1, 2, 'three', 1, 3)
+>>> t = (4, 5, [1, 2, 3], "eight")
+>>> t[2]
+[1, 2, 3]
+>>> x = ["one", "two", "three", "four"]
+>>> t = tuple(x)
+>>> t
+('one', 'two', 'three', 'four')
+>>> y = list(t)
+>>> y
+['one', 'two', 'three', 'four']
 ```
 
 Files
@@ -619,7 +619,7 @@ Here's an interactive prompt using those classes:
 Control Flow
 ------------
 
-Python supports short circuit evaluation.
+Logical arguments are in the if, elif, else format. For loops and while loops are both supported as well, though the for loop is a for each/in as opposed to a traditional C style one. Python also users short circuit evaluation when it comes to logical arguments in control flow.
 
     a = 1
     b = 9
