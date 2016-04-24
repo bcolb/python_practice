@@ -617,14 +617,14 @@ Here's an interactive prompt using those classes:
 Control Flow
 ------------
 
-Python supports close circuit evaluation.
+Python supports short circuit evaluation.
 
-a = 1
-b = 9
-if a > 0 or b > 11:
-    print("a or b is greater") # b never gets evaluated
-elif b < 10:
-    print("B is less than 10")
-else:
-    print("No conditions met")
+    a = 1
+    b = 9
+    if a > 0 or b > 11:
+        print("a or b is greater") # b never gets evaluated
+    elif b < 10:
+        print("B is less than 10")
+    else:
+        print("No conditions met")
 
