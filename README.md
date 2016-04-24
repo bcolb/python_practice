@@ -277,20 +277,20 @@ Similar to lists but are immutable (cannot be changed after creation). They are 
 * methods: count, index
 * index and slice notation work the same way as lists but cannot be used to add, remove, or replace
 
-    >>> t = ()
-    >>> t = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    >>> t = (1, 2, "three", 1, 3)
-    >>> t
+    >>>t = ()
+    >>>t = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    >>>t = (1, 2, "three", 1, 3)
+    >>>t
     (1, 2, 'three', 1, 3)
-    >>> t = (4, 5, [1, 2, 3], "eight")
-    >>> t[2]
+    >>>t = (4, 5, [1, 2, 3], "eight")
+    >>>t[2]
     [1, 2, 3]
-    >>> x = ["one", "two", "three", "four"]
-    >>> t = tuple(x)
-    >>> t
+    >>>x = ["one", "two", "three", "four"]
+    >>>t = tuple(x)
+    >>>t
     ('one', 'two', 'three', 'four')
-    >>> y = list(t)
-    >>> y
+    >>>y = list(t)
+    >>>y
     ['one', 'two', 'three', 'four']
 
 Files
