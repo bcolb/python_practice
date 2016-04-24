@@ -277,6 +277,7 @@ Similar to lists but are immutable (cannot be changed after creation). They are 
 * methods: count, index
 * index and slice notation work the same way as lists but cannot be used to add, remove, or replace
 
+```
     >>>t = ()
     >>>t = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
     >>>t = (1, 2, "three", 1, 3)
@@ -292,6 +293,7 @@ Similar to lists but are immutable (cannot be changed after creation). They are 
     >>>y = list(t)
     >>>y
     ['one', 'two', 'three', 'four']
+```
 
 Files
 -----
