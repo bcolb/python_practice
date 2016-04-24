@@ -137,13 +137,26 @@ Lists can be indexed from the front with positive indices or from the rear with 
     >>>l[-3]
     4
 
-You can also slice a list to form a smaller section of that list.
+You can also slice a list to form a smaller section of that list. Slicing lists will create a new copy of the list, not a reference to the existing list.
 
     >>>l = [1, 2, 3, 4, 5, 6]
     >>>l[:3]
     [1, 2, 3]
     >>>l[1:]
     [2, 3, 4, 5, 6]
+
+List comprehension is pretty cool in python.
+
+    >>> string_of_numbers = "1 2 3 4 5 6 7 8 9 10"
+    >>> string_array = string_of_numbers.split(' ')
+    >>> string_array
+    ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    >>> num_array = [int(x) for x in string_array]
+    >>> num_array
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    >>> squares = [x**2 for x in num_array]
+    >>> squares
+    [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 
 There are additional list methods and operators.
 
@@ -315,9 +328,291 @@ Using the os module.
     /Users/myusername/Programs/python_practice/hello.txt
     >>> f = open(filename, "r")
     >>> print(f.readline())
-    Hello world!
-    
+    Hello world!    
     >>> f.close()
+
+Control Flow
+------------
+
+A number of data types can be used as boolean values.
+
+Values evaluated as false include: False, 0, None, [], "", and other empty values.
+
+Values evaluted as true include: True, 1, and everything else that's not an empty value.
+
+Comparison expression can be made with the following operators:
+
+    >, >=, <, <=, ==, !=, is, not, in, is not, not in
+
+if-elif-else
+------------
+
+    >>> x = 7
+    >>> if x < 7:
+    ...     y = -9
+    ...     z = 5
+    ... elif x > 7:
+    ...     y = 10
+    ...     z = 1
+    ... else:
+    ...     y = 1
+    ...     z = 2
+    ... 
+    >>> print(x, y, z)
+    7 1 2
+
+The block of code following the first condition evaluted to true will be executed. If none of the if or elif conditions evalute to true and an else clause is included, then the block of code proceeding the else clause will execute. The elif and else clauses are optional.
+
+While Loops
+-----------
+
+While loops will continue to execute as long as the condition evaluates to true.
+
+    >>> while count < 1000:
+    ...     count *= 2
+    ...     print(count)
+    ... 
+    2
+    4
+    8
+    16
+    32
+    64
+    128
+    256
+    512
+    1024
+
+The break and continue statements can also be used within the loop. The break statement will end the loop while the continue statement will abort the current interation of the loop.
+
+for loops
+---------
+
+For loops are able to loop over any iterable type in python, including lists or tuples. The for loop in python is more like a for each loop in some other languages.
+
+    >>> a_list = ["item one", 2, 3, "four", "Penguin", "Gnu"]
+    >>> for item in a_list:
+    ...     print(item)
+    ... 
+    item one
+    2
+    3
+    four
+    Penguin
+    Gnu
+
+You can still loop through a number space using the range function.
+
+    >>> for i in range(0, 10):
+    ...     print("i = ", i)
+    ... 
+    i =  0
+    i =  1
+    i =  2
+    i =  3
+    i =  4
+    i =  5
+    i =  6
+    i =  7
+    i =  8
+    i =  9
+
+functions
+---------
+
+Python functions are defined using the 'def' keyword.
+
+    >>> def hello():
+    ...     print("Hello world!")
+    ... 
+    >>> hello()
+    Hello world!
+
+Arguments can be passed in one of several ways, for instance by position:
+
+    >>> def foo_bar(x, y, z):
+    ...     sum = x + y + z
+    ...     product = x * y * z
+    ...     print("Sum = ", sum)
+    ...     print("Product = ", product)
+    ... 
+    >>> foo_bar(1, 3, 9)
+    Sum =  13
+    Product =  27
+
+Or you can use keyword arguments, or a combination of both:
+
+    >>> def example(x, y=2, z=17):
+    ...     print("x: ",x)
+    ...     print("y: ",y)
+    ...     print("z: ",z)
+    ... 
+    >>> example(1, 2, 3)
+    x:  1
+    y:  2
+    z:  3
+    >>> example(0)
+    x:  0
+    y:  2
+    z:  17
+
+Extra positional arguments can be collected into a tuple using *, and extra keywords into a dictionary using **:
+
+    >>> def extra_tuple(*tup):
+    ...     print(tup)
+    ... 
+    >>> extra_tuple(1, 2, 3, 4, 10)
+    (1, 2, 3, 4, 10)
+    >>> def extra_dictionary(**dictionary):
+    ...     print(dictionary)
+    ... 
+   >>> extra_dictionary(n=1, d=2)
+   {'d': 2, 'n': 1}
+
+You can return a value using the return statement:
+
+    >>> def hello_world():
+    ...     return "Hello world!"
+    ... 
+    >>> hello_world()
+    'Hello world!'
+
+If a value isn't explicity returned, then the None value is returned.
+
+Exceptions
+----------
+
+In python exceptions can be caught and handled by using the try-except-finally-else statements. This structure also allows you to catch and handle custom exceptions defined by the program. Uncaught exceptions cause the program to exit.
+
+    >>> def open_file(filename):
+    ...     try:
+    ...         f = open(filename, 'r')
+    ...         print(f.readline())
+    ...         f.close()
+    ...     except IOError as error:
+    ...         print("The file %s could not be opened" % (filename))
+    ...     else:
+    ...         print("No exception occurred!")
+    ...     finally:
+    ...         print("This will always get executed")
+    ... 
+    >>> open_file("hello.txt")
+    The file hello.txt could not be opened
+    This will always get executed
+    >>> open_file("README.md")
+    python_practice
+    
+    No exception occurred!
+    This will always get executed
+
+Noe that both the else and finally clauses are optional.
+
+Modules
+-------
+
+Modules can be created and then used in the same way that the built-in library modules are used. Below is an example module with a single function that gets Mars weather data for an external api.
+
+    '''mars module. Get the temperature on mars'''
+    import urllib.request
+    import simplejson
+    def report():
+        url = "http://marsweather.ingenology.com/v1/latest/?format=json"
+        mars_results = urllib.request.urlopen(url)
+        json_results = simplejson.loads(mars_results.read())
+        results = json_results['report']
+        print(results)
+        for result in results:
+            print(result + ': ' + str(results[result]))
+    if __name__ == '__main__':
+        report()
+
+To import and use this:
+
+    >>> import mars
+    >>> mars.report()
+    season: Month 3
+    max_temp: -31.0
+    max_temp_fahrenheit: -23.8
+    min_temp_fahrenheit: -115.6
+    sol: 1151
+    terrestrial_date: 2015-11-01
+    pressure_string: Higher
+    abs_humidity: None
+    min_temp: -82.0
+    wind_direction: --
+    pressure: 901.0
+    ls: 62.0
+    sunrise: 2015-11-01T12:04:00Z
+    wind_speed: None
+    atmo_opacity: Sunny
+    sunset: 2015-11-01T23:49:00Z
+
+You can also organize modules into packages by creating a __init__.py file in the directory.
+
+Object Oriented
+---------------
+
+To declare a class in python use the 'class' keyword. Methods are defined using the 'def' keyword, just like functions.
+
+Class constructors are always defined as:
+
+    def __init(self):
+        self.name = 'someclass'
+
+Methods must pass 'self' as the first argument, which is a reference to the current object. Classes can inherit from other classes by passing in the parent class during definition:
+
+    class BorderCollie(Dog):
+        ...
+
+Note that classes must explicitly call the constructor of their parent class (assuming they have a parent class that is).
+
+Here are a few examples of classes. Multiple classes can be defined in the same file.
+
+    '''dogs module. Contains classes for Dog, BorderCollie, Husky.'''
+    class Dog:
+        '''Dog Class'''
+        def __init__(self, color, age):
+            self.color = color
+            self.age = age
+        def play(self):
+            return "Rooof!"
+        def __str__(self):
+            return "Dog with color %s and age %s" % (self.color, self.age)
+    
+    class BorderCollie(Dog):
+        '''Border Collie class'''
+        def __init__(self, color="black/white", age=1, name="Border Collie"):
+            Dog.__init__(self, color, age)
+            self.name = name
+        def play(self):
+            return "Tilts head sideways"
+    
+    class Husky(Dog):
+        '''Husky class'''
+        def __init__(self, color="all white", age=1, name="Husky"):
+            Dog.__init__(self, color, age)
+            self.name = name
+        def play(self):
+            return "Jumps up and down"
+
+Here's an interactive prompt using those classes:
+
+    >>> import dogs
+    >>> dog1 = dogs.Dog(color="Brown", age=4)
+    >>> dog1.color
+    'Brown'
+    >>> dog1.age
+    4
+    >>> dog1.play()
+    'Rooof!'
+    >>> str(dog1)
+    'Dog with color Brown and age 4'
+    >>> dog2 = dogs.BorderCollie(name="Jimbo")
+    >>> dog2.play()
+    'Tilts head sideways'
+    >>> str(dog2)
+    'Dog with color black/white and age 1'
+
 
 Control Flow
 ------------
